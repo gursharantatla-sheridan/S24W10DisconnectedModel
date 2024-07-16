@@ -79,5 +79,15 @@ namespace S24W10DisconnectedModel
             grdProducts.ItemsSource = crud.GetAllProducts().DefaultView;
             MessageBox.Show("Product updated");
         }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            int id = int.Parse(txtId.Text);
+            
+            crud.DeleteProduct(id);
+
+            grdProducts.ItemsSource = crud.GetAllProducts().DefaultView;
+            MessageBox.Show("Product deleted");
+        }
     }
 }

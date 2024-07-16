@@ -74,5 +74,15 @@ namespace S24W10DisconnectedModel
             adp.UpdateCommand = cmdBuilder.GetUpdateCommand();
             adp.Update(tbl);
         }
+
+        public void DeleteProduct(int id)
+        {
+            var row = tbl.Rows.Find(id);
+
+            row.Delete();
+
+            adp.DeleteCommand = cmdBuilder.GetDeleteCommand();
+            adp.Update(tbl);
+        }
     }
 }
