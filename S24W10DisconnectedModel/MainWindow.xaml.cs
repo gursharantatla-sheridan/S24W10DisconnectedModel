@@ -66,5 +66,18 @@ namespace S24W10DisconnectedModel
             grdProducts.ItemsSource = crud.GetAllProducts().DefaultView;
             MessageBox.Show("New product added");
         }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            int id = int.Parse(txtId.Text);
+            string name = txtName.Text;
+            decimal price = decimal.Parse(txtPrice.Text);
+            short quantity = short.Parse(txtQuantity.Text);
+
+            crud.UpdateProduct(id, name, price, quantity);
+
+            grdProducts.ItemsSource = crud.GetAllProducts().DefaultView;
+            MessageBox.Show("Product updated");
+        }
     }
 }

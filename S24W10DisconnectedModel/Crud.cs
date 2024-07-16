@@ -62,5 +62,17 @@ namespace S24W10DisconnectedModel
             adp.InsertCommand = cmdBuilder.GetInsertCommand();
             adp.Update(tbl);
         }
+
+        public void UpdateProduct(int id, string name, decimal price, short quantity)
+        {
+            var row = tbl.Rows.Find(id);
+
+            row["ProductName"] = name;
+            row["UnitPrice"] = price;
+            row["UnitsInStock"] = quantity;
+
+            adp.UpdateCommand = cmdBuilder.GetUpdateCommand();
+            adp.Update(tbl);
+        }
     }
 }
